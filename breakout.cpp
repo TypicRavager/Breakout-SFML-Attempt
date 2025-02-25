@@ -9,17 +9,11 @@
 
 class Entities {
 	//Purpose is to allow ball to interact with not only pad but bricks
-private:
-	
 public:
 	virtual void setX(int& someNum) = 0; 
-
 	virtual int getX() = 0;
-
 	virtual int getY() = 0;
-
 	virtual sf::RectangleShape getEnt() = 0;
-
 };
 
 
@@ -32,7 +26,6 @@ private:
 public:
 
 	Paddle() {
-		y_axis = Screen_Height - 40;
 		sf::Vector2f sizeRect = { 190,20 };
 		paddle.setFillColor(sf::Color::White);
 		paddle.setSize(sizeRect);
@@ -64,9 +57,7 @@ public:
 
 	void Move(float velocityX, float deltaTime) {
 		// Adjust paddle position based on velocity
-		x_axis += velocityX * deltaTime;
-
-		
+		x_axis += velocityX * deltaTime;		
 		if (x_axis < 1) {
 			x_axis = 1;
 		}
@@ -76,9 +67,8 @@ public:
 
 		paddle.setPosition(x_axis, y_axis);
 	}
-
-
 };
+
 class Ball {
 private:
 	int x_axis, y_axis, x_speed, y_speed;
